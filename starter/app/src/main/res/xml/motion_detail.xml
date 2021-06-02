@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetStart="@layout/content_detail"
+        app:constraintSetEnd="@id/exit_activity"
+        app:duration="500">
+    </Transition>
+
+    <ConstraintSet android:id="@+id/exit_activity">
+
+        <Constraint
+            android:id="@+id/txt_filename_title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toStartOf="parent"
+            />
+
+        <Constraint
+            android:id="@+id/txt_filename"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintStart_toEndOf="parent"
+            />
+        <Constraint
+            android:id="@+id/txt_status_title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toStartOf="parent"
+            />
+        <Constraint
+            android:id="@+id/txt_status"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintStart_toEndOf="parent"
+            />
+        <Constraint
+            android:id="@+id/btn_ok"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="parent"
+            />
+    </ConstraintSet>
+
+
+</MotionScene>

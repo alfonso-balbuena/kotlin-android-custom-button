@@ -1,11 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motion_layout_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".DetailActivity"
-    tools:showIn="@layout/activity_detail">
+    tools:showIn="@layout/activity_detail"
+    app:layoutDescription="@xml/motion_detail"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/txt_filename_title"
+        android:text="@string/file_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/txt_filename"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="end"
+        />
+
+    <TextView
+        android:id="@+id/txt_filename"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/txt_filename_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txt_filename_title"
+        tools:text="Nombre de prueba"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginEnd="10dp"
+        />
+
+    <TextView
+        android:id="@+id/txt_status_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        app:layout_constraintStart_toStartOf="@id/txt_filename_title"
+        app:layout_constraintTop_toBottomOf="@id/txt_filename"
+        app:layout_constraintEnd_toStartOf="@id/txt_status"
+        app:layout_constraintHorizontal_weight="1"
+        android:gravity="end"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        />
+
+    <TextView
+        android:id="@+id/txt_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text ="Success"
+        app:layout_constraintTop_toBottomOf="@id/txt_filename"
+        app:layout_constraintStart_toEndOf="@id/txt_status_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_btn"
+        android:text="@string/ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
