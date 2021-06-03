@@ -49,6 +49,11 @@ class MainActivity : AppCompatActivity() {
         
     }
 
+    override fun onPause() {
+        super.onPause()
+        unregisterReceiver(receiver)
+    }
+
     fun onRadioButtonClicked(view : View) {
         if(view is RadioButton) {
             val checked = view.isChecked
@@ -100,13 +105,13 @@ class MainActivity : AppCompatActivity() {
         contentIntent.putExtra(DetailActivity.URI,uri)
         contentIntent.putExtra(DetailActivity.STATUS,status)
         val contentPendingIntent = PendingIntent.getActivity(this@MainActivity,id!!.toInt(),contentIntent,PendingIntent.FLAG_UPDATE_CURRENT)
-
         val build = NotificationCompat.Builder(this@MainActivity, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentTitle(uri)
             .setContentText("Download completed")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .addAction(R.drawable.ic_launcher_foreground,"Check the status",contentPendingIntent)
+        notificationManager.cancelAll()
         with(NotificationManagerCompat.from(this@MainActivity)) {
             notify(id,build.build())
         }
