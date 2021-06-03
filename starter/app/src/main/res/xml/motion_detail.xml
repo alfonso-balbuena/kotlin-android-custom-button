@@ -3,9 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Transition
-        app:constraintSetStart="@layout/content_detail"
-        app:constraintSetEnd="@id/exit_activity"
-        app:duration="500">
+        app:constraintSetEnd="@layout/content_detail"
+        app:constraintSetStart="@id/exit_activity"
+        app:autoTransition="animateToEnd"
+        app:duration="1000">
+
     </Transition>
 
     <ConstraintSet android:id="@+id/exit_activity">

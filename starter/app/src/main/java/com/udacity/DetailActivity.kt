@@ -18,8 +18,6 @@ class DetailActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         val uri = intent.getStringExtra(URI)
         val status = intent.getIntExtra(STATUS,-1)
-        val notificationManager = getSystemService(NotificationManager::class.java)
-        notificationManager.cancelAll()
         txt_filename.text = uri
         val string_status = when(status) {
             DownloadManager.STATUS_SUCCESSFUL -> "Success"
@@ -30,9 +28,7 @@ class DetailActivity : AppCompatActivity() {
         txt_status.setTextColor(color)
         txt_status.text = string_status
         btn_ok.setOnClickListener {
-            motion_layout_detail.transitionToEnd {
-                onBackPressed()
-            }
+            onBackPressed()
         }
     }
 
